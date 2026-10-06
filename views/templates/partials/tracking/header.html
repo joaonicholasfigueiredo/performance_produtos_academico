@@ -1,0 +1,42 @@
+          <header class="topbar tracking-topbar">
+            <div>
+              <span class="eyebrow">ACOMPANHAMENTO</span>
+              <h1 id="tracking-page-title">Produção acumulada</h1>
+              <p id="tracking-page-description">Compare a produção realizada com a meta por produto.</p>
+            </div>
+            <div class="tracking-filter-controls">
+              <button id="tracking-export-button" class="tracking-export-button" type="button" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 14v5h14v-5M8 3h8"/></svg>
+                Exportar tabela em Excel
+              </button>
+              <div class="period-filter backdrop-blur-sm shadow-md shadow-emerald-950/5 ring-1 ring-white/80" aria-label="Filtro de período">
+                <label>
+                  <span>DE</span>
+                  <select id="period-start" aria-label="Período inicial"></select>
+                </label>
+                <span class="period-arrow" aria-hidden="true">→</span>
+                <label>
+                  <span>ATÉ</span>
+                  <select id="period-end" aria-label="Período final"></select>
+                </label>
+                <label class="unit-filter">
+                  <span>UNIDADE</span>
+                  <select id="unit-select" aria-label="Selecionar PA ou Singular"></select>
+                </label>
+              </div>
+            </div>
+          </header>
+
+          <div id="tracking-loading" class="tracking-loading">
+            <span class="spinner"></span>
+            <p>Consolidando os produtos…</p>
+          </div>
+
+          <div id="tracking-empty" class="tracking-empty" hidden>
+            <span class="empty-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 15l3-3 2 2 3-4"/></svg>
+            </span>
+            <h2>Acompanhamento ainda indisponível</h2>
+            <p>Importe e confirme ao menos um arquivo para visualizar a evolução.</p>
+            <a class="primary-button inline" href="#importar">Ir para importação</a>
+          </div>

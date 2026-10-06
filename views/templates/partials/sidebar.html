@@ -1,0 +1,82 @@
+      <aside class="sidebar shadow-2xl shadow-emerald-950/15" aria-label="Navegação principal">
+        <div class="sidebar-scroll-area">
+          <a class="brand" href="{{ app_root_path }}/" aria-label="Página inicial">
+            <span class="brand-mark shadow-lg shadow-lime-300/10" aria-hidden="true" style="padding: 2px; align-items: center;">
+              <img src="{{ app_root_path }}/static/img/logo.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+            </span>
+            <span>
+              <strong>Acompanha</strong>
+              <small>Produtos</small>
+            </span>
+          </a>
+
+          <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-expanded="true" aria-controls="primary-navigation" aria-label="Recolher menu lateral">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 9 12l6 6"/></svg>
+            <span id="sidebar-toggle-label">Recolher menu</span>
+          </button>
+
+          <nav id="primary-navigation">
+            <a id="nav-tracking" class="nav-link transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#acompanhamento" aria-label="Visão geral - 19 produtos">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>
+              <span class="nav-label"><strong>Visão geral</strong><small id="nav-tracking-count">19 produtos</small></span>
+              <span class="mobile-nav-label" aria-hidden="true">Produtos</span>
+            </a>
+            <a id="nav-focus" class="nav-link transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#foco" aria-label="Produtos prioritários - 7 produtos foco">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+              <span class="nav-label"><strong>Produtos prioritários</strong><small id="nav-focus-count">7 produtos foco</small></span>
+              <span class="mobile-nav-label" aria-hidden="true">Foco</span>
+            </a>
+            <a id="nav-agencies" class="nav-link transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#agencias" aria-label="Desempenho por agência">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6M8 10h2m4 0h2"/></svg>
+              <span class="nav-label"><strong>Desempenho</strong><small>Por agência</small></span>
+              <span class="mobile-nav-label" aria-hidden="true">Agências</span>
+            </a>
+            <a id="nav-evolution" class="nav-link transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#evolucao" aria-label="Estudo de evolução">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6"/><path d="M16 7h3v3"/></svg>
+              <span class="nav-label"><strong>Estudo de evolução</strong><small>Análise histórica</small></span>
+              <span class="mobile-nav-label" aria-hidden="true">Evolução</span>
+            </a>
+            <div id="admin-navigation" class="admin-navigation" role="group" hidden aria-labelledby="admin-navigation-title">
+              <span id="admin-navigation-title" class="admin-navigation-title">Administração</span>
+              <a id="nav-import" hidden class="nav-link active transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#importar" aria-current="page" aria-label="Importação de Arquivos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+                <span class="nav-label"><strong>Importação de Arquivos</strong></span>
+                <span class="mobile-nav-label" aria-hidden="true">Importar</span>
+              </a>
+              <a id="nav-logs" hidden class="nav-link transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300" href="#logs" aria-label="Histórico de atualizações">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l4 4v14H3V3h4zm2 0v6h6V3M7 14h10M7 18h7"/></svg>
+                <span class="nav-label"><strong>Histórico de atualizações</strong></span>
+                <span class="mobile-nav-label" aria-hidden="true">Histórico</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <div id="user-area" class="user-area" aria-label="Área do usuário">
+          <button id="user-menu-button" class="user-summary" type="button" aria-expanded="false" aria-controls="user-menu">
+            <span id="user-avatar" class="user-avatar" aria-hidden="true">?</span>
+            <span class="user-summary-copy">
+              <strong id="user-name">Carregando usuário</strong>
+              <small id="user-email">Aguarde…</small>
+            </span>
+            <svg class="user-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="user-menu" class="user-menu" hidden>
+            <div class="user-menu-heading">
+              <small>ÁREA DO USUÁRIO</small>
+              <strong id="user-menu-name">Carregando usuário</strong>
+              <span id="user-menu-email">Aguarde…</span>
+            </div>
+            <dl class="user-menu-details">
+              <div id="user-menu-profile-row"><dt>Perfil</dt><dd id="user-menu-profile">—</dd></div>
+              <div id="user-menu-role-row"><dt>Cargo</dt><dd id="user-menu-role">—</dd></div>
+              <div id="user-menu-department-row"><dt>Área</dt><dd id="user-menu-department">—</dd></div>
+              <div id="user-menu-pa-row"><dt>PA</dt><dd id="user-menu-pa">—</dd></div>
+            </dl>
+            <a class="user-logout" href="{{ app_root_path }}/logout">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5m5-4 4-3-4-3m4 3H9"/></svg>
+              Sair
+            </a>
+          </div>
+        </div>
+      </aside>

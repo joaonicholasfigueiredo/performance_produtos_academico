@@ -1,0 +1,37 @@
+/* Mantém a categoria visualmente identificável mesmo quando sua contagem é zero. */
+.distribution-band {
+  --distribution-color: var(--green-600);
+}
+
+.distribution-band.good {
+  --distribution-color: #73a851;
+}
+
+.distribution-band.attention {
+  --distribution-color: #d3aa3d;
+}
+
+.distribution-band.warning {
+  --distribution-color: var(--amber);
+}
+
+.distribution-band.critical {
+  --distribution-color: var(--red);
+}
+
+.distribution-band.is-empty .distribution-track {
+  background: color-mix(in srgb, var(--distribution-color) 18%, #e9efec);
+}
+
+.distribution-band.is-empty .distribution-track::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--distribution-color);
+}
+
+.distribution-band.is-empty .distribution-band-label strong {
+  color: var(--distribution-color);
+}

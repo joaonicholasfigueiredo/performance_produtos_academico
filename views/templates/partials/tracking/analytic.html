@@ -1,0 +1,150 @@
+            <section id="analytic-panel" class="analytic-workspace" role="tabpanel" aria-labelledby="analytic-view-button" hidden>
+              <section id="analytic-perspective-bar" class="analytic-perspective-bar shadow-lg shadow-emerald-950/5 ring-1 ring-white/70" aria-labelledby="analytic-perspective-title" hidden>
+                <div>
+                  <span id="analytic-perspective-title" class="eyebrow">PERSPECTIVA ANALÍTICA</span>
+                  <p id="analytic-perspective-description">Selecione um produto para comparar o desempenho entre os PAs.</p>
+                </div>
+                <div class="analytic-perspective-actions">
+                  <span id="analytic-perspective-context" class="analytic-perspective-context">Consolidado Singular</span>
+                  <div class="analytic-perspective-toggle" role="tablist" aria-label="Alternar perspectiva analítica">
+                    <button id="product-by-agency-button" class="analytic-perspective-button active" type="button" role="tab" aria-selected="true">PA por Produto</button>
+                    <button id="agency-by-product-button" class="analytic-perspective-button" type="button" role="tab" aria-selected="false">Produto por PA</button>
+                  </div>
+                </div>
+              </section>
+              <nav id="focus-product-tabs" class="focus-product-tabs shadow-lg shadow-emerald-950/5 ring-1 ring-white/70" aria-label="Navegação analítica" hidden>
+                <span id="focus-product-tabs-label" class="focus-product-tabs-label">NAVEGAR POR PRODUTO</span>
+                <div id="focus-product-tab-list" class="focus-product-tab-list" role="tablist"></div>
+              </nav>
+              <section id="focus-consolidated-kpis" class="focus-consolidated-kpis" aria-labelledby="focus-consolidated-kpis-title" hidden>
+                <header>
+                  <div class="focus-consolidated-kpis-title-row">
+                    <strong id="focus-consolidated-kpis-title">Resumo dos produtos</strong>
+                    <div class="focus-consolidated-basis-toggle" role="group" aria-label="Alternar período dos indicadores consolidados">
+                      <button id="focus-consolidated-period-button" class="active" type="button" aria-pressed="true">No período</button>
+                      <button id="focus-consolidated-annual-button" type="button" aria-pressed="false">Anual</button>
+                    </div>
+                  </div>
+                  <span id="focus-consolidated-kpis-context">Produção em relação à meta no período</span>
+                </header>
+                <div class="focus-consolidated-kpis-scroll">
+                  <div id="focus-consolidated-kpis-grid" class="focus-consolidated-kpis-grid"></div>
+                </div>
+              </section>
+              <section id="analytic-matrix-card" class="matrix-card analytic-matrix-card shadow-xl shadow-emerald-950/5 ring-1 ring-white/70">
+                <div class="matrix-header analytic-header">
+                  <div>
+                    <span id="analytic-matrix-eyebrow" class="eyebrow">EVOLUÇÃO MENSAL</span>
+                    <h2 id="analytic-matrix-title">Meta × Produção por produto</h2>
+                    <p id="analytic-subtitle">Valores mensais lado a lado no período selecionado.</p>
+                  </div>
+                </div>
+                <section id="analytic-combo-filter" class="analytic-combo-filter" aria-labelledby="analytic-combo-filter-title">
+                  <div class="analytic-combo-filter-copy">
+                    <span id="analytic-combo-filter-title">VISUALIZAR POR COMBO</span>
+                    <small>Selecione um grupo para reunir seus produtos e indicadores no período.</small>
+                  </div>
+                  <div id="analytic-combo-buttons" class="analytic-combo-buttons" role="group" aria-label="Filtrar produtos por combo"></div>
+                </section>
+                <section id="analytic-combo-kpis" class="analytic-combo-kpis" aria-live="polite" hidden></section>
+                <div class="matrix-scroll analytic-table-scroll">
+                  <table class="tracking-table analytic-table">
+                    <thead id="analytic-table-head"></thead>
+                    <tbody id="analytic-table-body"></tbody>
+                  </table>
+                </div>
+                <div class="matrix-footer">
+                  <span id="analytic-count">—</span>
+                  <div id="analytic-pagination" class="analytic-pagination" aria-label="Paginação de produtos">
+                    <button id="analytic-previous-page" type="button" aria-label="Página anterior">←</button>
+                    <span id="analytic-page-indicator">Página 1 de 1</span>
+                    <button id="analytic-next-page" type="button" aria-label="Próxima página">→</button>
+                  </div>
+                  <span id="analytic-page-note">Máximo de 3 produtos por página</span>
+                </div>
+              </section>
+
+              <section id="focus-agency-performance" class="matrix-card focus-agency-performance shadow-xl shadow-emerald-950/5 ring-1 ring-white/70" hidden>
+                <div class="matrix-header focus-agency-performance-heading">
+                  <div>
+                    <span class="eyebrow">DESEMPENHO POR AGÊNCIA</span>
+                    <h2 id="focus-agency-performance-title">Selecione um produto</h2>
+                    <p id="focus-agency-performance-subtitle">Compare meta e produção das agências no período selecionado.</p>
+                  </div>
+                  <div class="focus-agency-performance-actions">
+                    <div class="focus-agency-view-toggle" role="tablist" aria-label="Alternar visualização do produto">
+                      <button id="focus-agency-table-view" class="active" type="button" role="tab" aria-selected="true">Tabela</button>
+                      <button id="focus-agency-chart-view" type="button" role="tab" aria-selected="false">Gráfico</button>
+                    </div>
+                    <div id="focus-agency-performance-kpis" class="focus-agency-performance-kpis"></div>
+                  </div>
+                </div>
+                <div id="focus-agency-table-content" class="matrix-scroll focus-agency-performance-scroll">
+                  <table class="tracking-table focus-agency-performance-table">
+                    <thead id="focus-agency-performance-head"></thead>
+                    <tbody id="focus-agency-performance-body"></tbody>
+                  </table>
+                </div>
+                <div id="focus-agency-table-footer" class="matrix-footer">
+                  <span id="focus-agency-performance-count">—</span>
+                  <div id="focus-agency-pagination" class="analytic-pagination" aria-label="Paginação de agências" hidden>
+                    <button id="focus-agency-previous-page" type="button" aria-label="Página anterior de agências">←</button>
+                    <span id="focus-agency-page-indicator">Página 1 de 1</span>
+                    <button id="focus-agency-next-page" type="button" aria-label="Próxima página de agências">→</button>
+                  </div>
+                  <span id="focus-agency-page-note">Todas as agências exibidas</span>
+                </div>
+              </section>
+
+              <div id="analytic-chart-hint" class="chart-hint">
+                <span class="chart-hint-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg>
+                </span>
+                <div>
+                  <strong>Selecione um produto para visualizar o gráfico</strong>
+                  <p>O gráfico de evolução é exibido somente quando um produto específico estiver filtrado.</p>
+                </div>
+              </div>
+
+              <section id="analytic-chart-card" class="matrix-card analytic-chart-card shadow-xl shadow-emerald-950/5 ring-1 ring-white/70" hidden>
+                <div class="matrix-header">
+                  <div>
+                    <span class="eyebrow">GRÁFICO DE EVOLUÇÃO</span>
+                    <h2 id="analytic-chart-title">Evolução mensal</h2>
+                    <p id="analytic-chart-subtitle"></p>
+                  </div>
+                  <div class="chart-header-tools">
+                    <div class="chart-editor" aria-label="Configurações do gráfico">
+                      <label class="chart-model-field meta-series">
+                        <span>Meta</span>
+                        <select id="analytic-chart-meta-model" aria-label="Modelo da série Meta">
+                          <option value="line">Linhas</option>
+                          <option value="columns">Colunas</option>
+                        </select>
+                      </label>
+                      <label class="chart-model-field production-series">
+                        <span>Produção</span>
+                        <select id="analytic-chart-production-model" aria-label="Modelo da série Produção">
+                          <option value="line">Linhas</option>
+                          <option value="columns">Colunas</option>
+                        </select>
+                      </label>
+                      <label class="chart-display-option">
+                        <input id="analytic-chart-show-variation" type="checkbox" checked>
+                        <span>Variação mensal</span>
+                      </label>
+                      <label class="chart-display-option">
+                        <input id="analytic-chart-show-values" type="checkbox" checked>
+                        <span>Valores mensais</span>
+                      </label>
+                    </div>
+                    <div class="chart-legend" aria-label="Legenda do gráfico">
+                      <span><i class="meta-line"></i>Meta mensal</span>
+                      <span><i class="production-line"></i>Produção mensal</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="analytic-chart-summary" class="chart-summary" aria-label="Resumo do produto selecionado"></div>
+                <div id="analytic-chart" class="line-chart" role="img" aria-label="Gráfico de linhas de meta e produção mensal"></div>
+              </section>
+            </section>

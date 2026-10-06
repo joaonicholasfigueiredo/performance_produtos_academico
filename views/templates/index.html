@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="app-root-path" content="{{ app_root_path }}">
+    <meta name="description" content="Acompanhamento executivo de metas e produção por produto e agência">
+    <title>Acompanhamento de Produtos</title>
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/app.css?v=20260827-4">
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/unit-summary.css?v=20260924-28">
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/sidebar.css?v=20260924-3">
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/distribution.css?v=20260827-1">
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/executive.css?v=20260925-8">
+    <link rel="stylesheet" href="{{ app_root_path }}/static/css/evolution.css?v=20260925-7">
+  </head>
+  <body class="min-h-screen bg-[radial-gradient(circle_at_top_right,_rgba(13,114,90,0.09),_transparent_32%),linear-gradient(to_bottom,_#f8fbfa,_#f1f6f3)] text-slate-900 antialiased selection:bg-emerald-200 selection:text-emerald-950">
+    <div class="app-shell">
+      {% include "partials/sidebar.html" %}
+      <main>
+        {% include "partials/import.html" %}
+        {% include "partials/tracking.html" %}
+        {% include "partials/agencies.html" %}
+        {% include "partials/evolution.html" %}
+        {% include "partials/logs.html" %}
+      </main>
+    </div>
+
+    {% include "partials/modals.html" %}
+
+    <div id="toast-region" class="toast-region" aria-live="polite"></div>
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Voltar ao topo" aria-hidden="true" tabindex="-1">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
+      <span>Topo</span>
+    </button>
+    <script src="{{ app_root_path }}/static/src/app.js?v=20260925-60"></script>
+  </body>
+</html>

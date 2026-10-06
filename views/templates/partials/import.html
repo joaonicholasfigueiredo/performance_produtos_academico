@@ -1,0 +1,107 @@
+        <section id="import-view" class="view" hidden>
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">BASE DE DADOS</span>
+            <h1>Importação mensal</h1>
+            <p>Valide e consolide os arquivos de produção com segurança.</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="wipe-button" class="secondary-button danger-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6"/></svg>
+              Limpar base
+            </button>
+            <button id="export-button" class="secondary-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+              Exportar base
+            </button>
+          </div>
+        </header>
+
+        <section class="status-strip backdrop-blur-sm shadow-md shadow-emerald-950/5" aria-label="Situação da base">
+          <div class="status-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          </div>
+          <div class="status-copy">
+            <small>BASE DE PRODUÇÃO</small>
+            <strong id="base-status-title">Verificando base local…</strong>
+          </div>
+          <div class="status-metric">
+            <small>REGISTROS</small>
+            <strong id="base-row-count">—</strong>
+          </div>
+          <div class="status-metric">
+            <small>PERÍODOS</small>
+            <strong id="base-period-count">—</strong>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <article class="upload-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+            <div class="section-heading">
+              <span class="step-number">01</span>
+              <div>
+                <h2>Selecione o arquivo</h2>
+                <p>O arquivo será verificado antes de qualquer dado ser gravado.</p>
+              </div>
+            </div>
+
+            <input id="file-input" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
+            <button id="drop-zone" class="drop-zone" type="button">
+              <span class="upload-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4h14v-4"/></svg>
+              </span>
+              <strong>Arraste o arquivo .xlsx aqui</strong>
+              <span>ou clique para selecionar no computador</span>
+              <span class="file-rule">XLSX · até 50 MB</span>
+            </button>
+
+            <div id="selected-file" class="selected-file" hidden>
+              <div class="excel-icon">X</div>
+              <div class="file-copy">
+                <strong id="selected-file-name"></strong>
+                <span id="selected-file-size"></span>
+              </div>
+              <button id="remove-file" class="icon-button" type="button" aria-label="Remover arquivo">×</button>
+            </div>
+
+            <button id="analyze-button" class="primary-button" type="button" disabled>
+              <span>Analisar arquivo</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+            </button>
+          </article>
+
+          <aside class="rules-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+            <div class="section-heading compact">
+              <span class="step-number muted">02</span>
+              <div>
+                <h2>Tratamento automático</h2>
+                <p>O que acontece durante a análise.</p>
+              </div>
+            </div>
+
+            <ol class="rules-list">
+              <li>
+                <span class="rule-icon"><svg viewBox="0 0 24 24"><path d="M7 3h10l4 4v14H3V3h4zm2 0v6h6V3M7 14h10M7 18h7"/></svg></span>
+                <div><strong>Validação da estrutura</strong><p>Conferência das 16 colunas obrigatórias.</p></div>
+              </li>
+              <li>
+                <span class="rule-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6m10-6v6M5 13h5v5H5zM4 10v10h16V10"/></svg></span>
+                <div><strong>Identificação do período</strong><p>O MÊS/ANO será usado como data-base.</p></div>
+              </li>
+              <li>
+                <span class="rule-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16M7 7l10 10M17 7 7 17"/></svg></span>
+                <div><strong>Padronização dos valores</strong><p>Vazios viram 0 e decimais textuais são convertidos.</p></div>
+              </li>
+              <li>
+                <span class="rule-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+                <div><strong>Base acumulativa</strong><p>Os dados confirmados são armazenados no PostgreSQL.</p></div>
+              </li>
+            </ol>
+
+            <div class="privacy-note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.7 2.8 8.4 7 10 4.2-1.6 7-5.3 7-10V6zM9 12l2 2 4-5"/></svg>
+              <span><strong>Processamento local</strong>O arquivo não é enviado para serviços externos.</span>
+            </div>
+          </aside>
+        </section>
+        </section>

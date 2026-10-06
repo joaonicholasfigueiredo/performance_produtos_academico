@@ -1,0 +1,91 @@
+        <section id="logs-view" class="view" hidden>
+          <header class="topbar">
+            <div>
+              <span class="eyebrow">AUDITORIA LOCAL</span>
+              <h1>Histórico de atualizações</h1>
+              <p>Consulte as alterações registradas durante a atualização dos períodos.</p>
+            </div>
+            <button id="refresh-logs-button" class="secondary-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5M4 18v-5h5M18 9a7 7 0 0 0-12-2l-2 4m2 4a7 7 0 0 0 12 2l2-4"/></svg>
+              Atualizar consulta
+            </button>
+          </header>
+
+          <div id="logs-loading" class="tracking-loading">
+            <span class="spinner"></span>
+            <p>Consultando registros locais…</p>
+          </div>
+
+          <div id="logs-empty" class="tracking-empty" hidden>
+            <span class="empty-icon">
+              <svg viewBox="0 0 24 24"><path d="M7 3h10l4 4v14H3V3h4zm2 0v6h6V3M7 14h10M7 18h7"/></svg>
+            </span>
+            <h2>Nenhuma atualização registrada</h2>
+            <p>Os logs aparecerão após a reimportação confirmada de um período existente.</p>
+          </div>
+
+          <div id="logs-content" hidden>
+            <section class="tracking-summary logs-summary" aria-label="Resumo dos logs">
+              <article class="summary-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6m10-6v6M5 13h5v5H5zM4 10v10h16V10"/></svg></span>
+                <div><small>ATUALIZAÇÕES</small><strong id="log-kpi-updates">—</strong><p>operações registradas</p></div>
+              </article>
+              <article class="summary-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></span>
+                <div><small>REGISTROS ALTERADOS</small><strong id="log-kpi-changes">—</strong><p>produtos e PAs impactados</p></div>
+              </article>
+              <article class="summary-card positive transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span>
+                <div><small>PERÍODOS ATUALIZADOS</small><strong id="log-kpi-periods">—</strong><p>meses distintos</p></div>
+              </article>
+            </section>
+
+            <section class="matrix-card shadow-xl shadow-emerald-950/5 ring-1 ring-white/70">
+              <div class="matrix-header">
+                <div>
+                  <span class="eyebrow">HISTÓRICO DE ALTERAÇÕES</span>
+                  <h2>Valores modificados</h2>
+                  <p>Comparação entre o registro anterior e o novo arquivo importado.</p>
+                </div>
+                <div class="log-filter-actions">
+                  <div class="log-period-filter">
+                    <button id="log-period-button" class="log-period-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5zM8 3v4m8-4v4M5 9h14"/></svg>
+                      <span id="log-period-button-label">Todos os períodos</span>
+                      <i aria-hidden="true">⌄</i>
+                    </button>
+                    <div id="log-period-menu" class="log-period-menu" role="listbox" aria-label="Selecionar período dos logs" hidden></div>
+                  </div>
+                  <label class="search-field">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+                    <input id="log-search" aria-label="Buscar produto ou PA" type="search" placeholder="Buscar produto ou PA" autocomplete="off">
+                  </label>
+                </div>
+              </div>
+              <div class="matrix-scroll">
+                <table class="tracking-table log-table">
+                  <thead>
+                    <tr>
+                      <th>DATA DA ATUALIZAÇÃO</th>
+                      <th>PERÍODO</th>
+                      <th>PRODUTO</th>
+                      <th>PA</th>
+                      <th>TIPO</th>
+                      <th>VALORES ALTERADOS</th>
+                    </tr>
+                  </thead>
+                  <tbody id="logs-table-body"></tbody>
+                </table>
+              </div>
+              <div class="matrix-footer">
+                <span id="logs-count">—</span>
+                <div class="analytic-pagination log-pagination" aria-label="Paginação dos logs">
+                  <button id="logs-previous-page" type="button" aria-label="Página anterior">←</button>
+                  <span id="logs-page-indicator">Página 1 de 1</span>
+                  <button id="logs-next-page" type="button" aria-label="Próxima página">→</button>
+                </div>
+                <span>Eventos persistidos no PostgreSQL</span>
+              </div>
+            </section>
+          </div>
+        </section>

@@ -1,0 +1,91 @@
+<section id="evolution-view" class="view evolution-view" hidden>
+  <header class="topbar evolution-topbar">
+    <div>
+      <span class="eyebrow">ANÁLISE HISTÓRICA</span>
+      <h1>Estudo de evolução</h1>
+      <p>Acompanhe a trajetória de cada produto por agência e o ritmo necessário para alcançar a meta anual.</p>
+    </div>
+  </header>
+
+  <div id="evolution-loading" class="tracking-loading">
+    <span class="spinner"></span>
+    <p>Calculando a trajetória anual…</p>
+  </div>
+
+  <div id="evolution-empty" class="tracking-empty" hidden>
+    <span class="empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6"/></svg>
+    </span>
+    <h2>Não foi possível montar o estudo</h2>
+    <p id="evolution-empty-message">Verifique se existem dados anuais importados para a agência.</p>
+  </div>
+
+  <div id="evolution-content" hidden>
+    <section class="evolution-filter-bar" aria-label="Filtros do estudo de evolução">
+      <div>
+        <label for="evolution-unit-filter">Agência</label>
+        <select id="evolution-unit-filter"></select>
+      </div>
+      <div>
+        <label for="evolution-product-filter">Produto</label>
+        <select id="evolution-product-filter"></select>
+      </div>
+      <span id="evolution-reference" class="evolution-reference">—</span>
+    </section>
+
+    <section id="evolution-kpis" class="evolution-kpis" aria-label="Resumo da evolução anual"></section>
+
+    <section class="evolution-analysis-grid">
+      <article class="evolution-chart-card" aria-labelledby="evolution-chart-title">
+        <header>
+          <div>
+            <h2 id="evolution-chart-title">Trajetória até a meta anual</h2>
+            <p id="evolution-chart-subtitle">—</p>
+          </div>
+          <div class="evolution-chart-tools">
+            <div class="evolution-legend" aria-label="Legenda do gráfico">
+              <span><i class="actual"></i>Produção acumulada</span>
+              <span><i class="ideal"></i>Referência ideal</span>
+              <span><i class="required"></i>Plano até dezembro</span>
+              <span class="variation-key"><b>↑↓</b>Variação mensal</span>
+            </div>
+            <button id="evolution-toggle-values" class="evolution-toggle-values" type="button" aria-pressed="true">Ocultar valores</button>
+          </div>
+        </header>
+        <div id="evolution-chart" class="evolution-chart"></div>
+      </article>
+
+      <aside id="evolution-guidance" class="evolution-guidance" aria-labelledby="evolution-guidance-title">
+        <span>LEITURA PARA DEZEMBRO</span>
+        <h2 id="evolution-guidance-title">—</h2>
+        <div id="evolution-guidance-copy" class="evolution-guidance-copy">—</div>
+        <dl id="evolution-guidance-details"></dl>
+      </aside>
+    </section>
+
+    <section class="evolution-table-card" aria-labelledby="evolution-table-title">
+      <header>
+        <div>
+          <h2 id="evolution-table-title">Leitura mês a mês</h2>
+          <p>Acompanhe a entrega mensal, o déficit carregado e o plano necessário para fechar o ano.</p>
+        </div>
+      </header>
+      <div id="evolution-table-reading" class="evolution-table-reading" aria-live="polite"></div>
+      <div class="matrix-scroll">
+        <table class="tracking-table evolution-table">
+          <thead>
+            <tr>
+              <th>MÊS</th>
+              <th>META MENSAL<small>mínimo esperado no mês</small></th>
+              <th>PRODUÇÃO REALIZADA<small>entrega efetiva do mês</small></th>
+              <th>GAP<small>produção menos meta</small></th>
+              <th>DÉFICIT ACUMULADO<small>valor a recuperar na trilha anual</small></th>
+              <th>PLANO DE EVOLUÇÃO<small>produção necessária por mês</small></th>
+            </tr>
+          </thead>
+          <tbody id="evolution-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</section>

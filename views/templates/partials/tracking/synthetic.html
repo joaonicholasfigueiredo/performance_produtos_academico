@@ -1,0 +1,235 @@
+            <div class="tracking-mode-bar" aria-label="Tipo de visão">
+              <div class="view-toggle shadow-inner shadow-emerald-950/5" role="tablist" aria-label="Alternar visão do acompanhamento">
+                <button id="analytic-view-button" class="view-toggle-button" type="button" role="tab" aria-selected="false" aria-controls="analytic-panel">
+                  Analítico
+                </button>
+                <button id="synthetic-view-button" class="view-toggle-button active" type="button" role="tab" aria-selected="true" aria-controls="synthetic-panel">
+                  Sintético
+                </button>
+              </div>
+            </div>
+
+            <div id="synthetic-panel" role="tabpanel" aria-labelledby="synthetic-view-button">
+            <section class="calculation-basis-bar" aria-label="Base de cálculo da produção acumulada">
+              <div>
+                <span>BASE DE CÁLCULO</span>
+                <small>Consulte a posição anual ou o acumulado informado no período.</small>
+              </div>
+              <div class="calculation-basis-toggle" role="group" aria-label="Selecionar base de cálculo">
+                <button class="calculation-basis-button active" type="button" data-calculation-basis="NO_PERIODO" aria-pressed="true">
+                  No período
+                </button>
+                <button class="calculation-basis-button" type="button" data-calculation-basis="ANUAL" aria-pressed="false">
+                  Anual
+                </button>
+              </div>
+            </section>
+            <section class="tracking-summary" aria-label="Resumo da produção acumulada">
+              <article class="summary-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></span>
+                <div><small>PRODUTOS ACOMPANHADOS</small><strong id="kpi-products">—</strong><p id="kpi-period">—</p></div>
+              </article>
+              <article class="summary-card positive transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span>
+                <div><small>ADERENTES À META</small><strong id="kpi-adherent">—</strong><p>atingimento igual ou superior a 100%</p></div>
+              </article>
+              <article class="summary-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>
+                <div><small>TAXA DE ADERÊNCIA</small><strong id="kpi-rate">—</strong><p>entre produtos que possuem meta</p></div>
+              </article>
+              <article class="summary-card attention transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-950/5">
+                <span class="summary-card-icon"><svg viewBox="0 0 24 24"><path d="M12 8v5m0 3h.01M12 3 2 20h20z"/></svg></span>
+                <div><small>NÃO ADERENTES</small><strong id="kpi-not-adherent">—</strong><p id="kpi-without-target">—</p></div>
+              </article>
+              <article class="adherence-card" aria-label="Índice geral de aderência">
+                <div class="adherence-copy">
+                  <small>ÍNDICE GERAL</small>
+                  <strong>Aderência às metas</strong>
+                  <p>Produtos com atingimento igual ou superior a 100%.</p>
+                </div>
+                <div id="adherence-donut" class="adherence-donut" role="img" aria-label="Taxa de aderência">
+                  <span id="adherence-donut-value">—</span>
+                </div>
+              </article>
+            </section>
+
+            <section class="executive-briefing" aria-labelledby="executive-briefing-title">
+              <header class="executive-briefing-header">
+                <div>
+                  <span>LEITURA EXECUTIVA</span>
+                  <h2 id="executive-briefing-title">Destaques do período</h2>
+                </div>
+                <p id="executive-briefing-context">—</p>
+              </header>
+              <div class="executive-briefing-grid">
+                <article class="executive-insight positive">
+                  <span class="executive-insight-label">
+                    Produto com maior aderência
+                    <button class="executive-insight-help" type="button" aria-label="Entenda o cálculo da maior aderência" aria-describedby="best-product-tooltip">i</button>
+                    <span id="best-product-tooltip" class="executive-insight-tooltip" role="tooltip">
+                      Produto com o maior percentual de atingimento entre aqueles que possuem meta no período e unidade selecionados.
+                    </span>
+                  </span>
+                  <strong id="executive-best-product">—</strong>
+                  <small id="executive-best-product-detail">—</small>
+                </article>
+                <article class="executive-insight attention">
+                  <span class="executive-insight-label">
+                    Maior oportunidade em produto
+                    <button class="executive-insight-help" type="button" aria-label="Entenda o cálculo da maior oportunidade" aria-describedby="critical-product-tooltip">i</button>
+                    <span id="critical-product-tooltip" class="executive-insight-tooltip" role="tooltip">
+                      Produto com o maior déficit financeiro: a diferença negativa mais alta entre a produção realizada e a meta do período.
+                    </span>
+                  </span>
+                  <strong id="executive-critical-product">—</strong>
+                  <small id="executive-critical-product-detail">—</small>
+                </article>
+                <article class="executive-insight positive">
+                  <span>Agência líder em metas mensais</span>
+                  <strong id="executive-leading-unit">—</strong>
+                  <small id="executive-leading-unit-detail">—</small>
+                </article>
+                <article class="executive-insight attention">
+                  <span>Menor desempenho em metas mensais</span>
+                  <strong id="executive-attention-unit">—</strong>
+                  <small id="executive-attention-unit-detail">—</small>
+                </article>
+              </div>
+            </section>
+
+            <section class="achievement-distribution-card" aria-labelledby="achievement-distribution-title">
+              <div class="distribution-heading">
+                <div>
+                  <span class="eyebrow">DISTRIBUIÇÃO DE RESULTADOS</span>
+                  <h2 id="achievement-distribution-title">Faixas de atingimento</h2>
+                  <p>Visão rápida da concentração dos produtos em relação às metas.</p>
+                </div>
+                <span id="achievement-distribution-total" class="distribution-total">—</span>
+              </div>
+              <div id="achievement-distribution" class="achievement-distribution"></div>
+            </section>
+
+            <section class="matrix-card shadow-xl shadow-emerald-950/5 ring-1 ring-white/70">
+              <div class="matrix-header">
+                <div>
+                  <span class="eyebrow">MATRIZ POR PRODUTO</span>
+                  <h2 id="matrix-title">Produção acumulada</h2>
+                  <p id="matrix-subtitle">Valores acumulados no intervalo selecionado.</p>
+                </div>
+                <label class="search-field">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+                  <input id="product-search" aria-label="Buscar produto" type="search" placeholder="Buscar produto" autocomplete="off">
+                </label>
+              </div>
+
+              <div class="matrix-scroll">
+                <table class="tracking-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <button class="sort-button" type="button" data-sort="produto">
+                          PRODUTO <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th id="tracking-meta-header" class="value-header">META NO PERÍODO</th>
+                      <th id="tracking-production-header" class="value-header">PRODUÇÃO NO PERÍODO</th>
+                      <th>
+                        <button class="sort-button centered" type="button" data-sort="percentual_atingido">
+                          ATINGIMENTO <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th class="value-header">
+                        <button class="sort-button" type="button" data-sort="gap">
+                          GAP <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th>
+                        <button class="sort-button" type="button" data-sort="status">
+                          SITUAÇÃO <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="tracking-table-body"></tbody>
+                </table>
+              </div>
+              <div class="matrix-footer">
+                <span id="matrix-count">—</span>
+                <span class="criteria-note"><i></i>Aderente quando o atingimento é maior ou igual a 100%</span>
+              </div>
+            </section>
+
+            <section class="matrix-card unit-summary-card shadow-xl shadow-emerald-950/5 ring-1 ring-white/70" aria-labelledby="unit-summary-title">
+              <div class="matrix-header">
+                <div>
+                  <span class="eyebrow">RESUMO POR UNIDADE</span>
+                  <h2 id="unit-summary-title">Metas atingidas por PA</h2>
+                  <p id="unit-summary-subtitle">Comparativo das unidades para o período selecionado.</p>
+                </div>
+                <div class="unit-summary-view-toggle" role="tablist" aria-label="Alternar detalhamento das metas por PA">
+                  <button id="unit-summary-total-button" class="unit-summary-view-button active" type="button" role="tab" aria-selected="true" aria-controls="unit-summary-total-view">
+                    Total
+                  </button>
+                  <button id="unit-summary-monthly-button" class="unit-summary-view-button" type="button" role="tab" aria-selected="false" aria-controls="unit-summary-monthly-view">
+                    Mensal
+                  </button>
+                  <button id="unit-summary-analytic-button" class="unit-summary-view-button" type="button" role="tab" aria-selected="false" aria-controls="unit-summary-analytic-view">
+                    Analítico
+                  </button>
+                </div>
+              </div>
+              <div class="unit-summary-filters" aria-label="Filtros das metas atingidas por PA">
+                <label>
+                  <span>AGÊNCIA</span>
+                  <select id="unit-summary-analytic-unit-filter">
+                    <option value="">Todas as agências</option>
+                  </select>
+                </label>
+                <label id="unit-summary-month-filter-label" hidden>
+                  <span>MÊS</span>
+                  <select id="unit-summary-analytic-month-filter">
+                    <option value="">Todos os meses</option>
+                  </select>
+                </label>
+              </div>
+              <div id="unit-summary-total-view" class="matrix-scroll" role="tabpanel" aria-labelledby="unit-summary-total-button">
+                <table class="tracking-table unit-summary-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <button class="unit-sort-button" type="button" data-unit-sort="pa">
+                          UNIDADE <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th>METAS NO PERÍODO</th>
+                      <th>METAS ATINGIDAS</th>
+                      <th>
+                        <button class="unit-sort-button centered" type="button" data-unit-sort="adherence_rate">
+                          APROVEITAMENTO <span class="sort-icon" aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="unit-summary-table-body"></tbody>
+                </table>
+              </div>
+              <div id="unit-summary-monthly-view" class="matrix-scroll" role="tabpanel" aria-labelledby="unit-summary-monthly-button" hidden>
+                <table class="tracking-table unit-summary-table unit-summary-monthly-table">
+                  <thead id="unit-summary-monthly-head"></thead>
+                  <tbody id="unit-summary-monthly-body"></tbody>
+                </table>
+              </div>
+              <div id="unit-summary-analytic-view" role="tabpanel" aria-labelledby="unit-summary-analytic-button" hidden>
+                <div class="matrix-scroll unit-summary-analytic-scroll">
+                  <table class="tracking-table unit-summary-table unit-summary-analytic-table">
+                    <thead id="unit-summary-analytic-head"></thead>
+                    <tbody id="unit-summary-analytic-body"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="matrix-footer">
+                <span id="unit-summary-count">—</span>
+                <span id="unit-summary-criteria" class="criteria-note"><i></i>Cada produto pode pontuar uma vez por mês ao atingir 100% da meta</span>
+              </div>
+            </section>
+            </div>

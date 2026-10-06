@@ -1,0 +1,14 @@
+@import "tailwindcss" source(none);
+@source "./index.html";
+@source "./app.js";
+
+@theme {
+  --font-sans: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-brand-50: #f1f8f5;
+  --color-brand-100: #dceee7;
+  --color-brand-500: #0d725a;
+  --color-brand-600: #095c49;
+  --color-brand-900: #133d34;
+}
+
+@import "./styles.css";

@@ -1,0 +1,117 @@
+        <section id="agencies-view" class="view" hidden>
+          <header class="topbar agencies-topbar">
+            <div>
+              <span class="eyebrow">ACOMPANHAMENTO POR UNIDADE</span>
+              <h1>Desempenho por agência</h1>
+              <p>Compare aderência, metas e produção acumulada de cada PA.</p>
+            </div>
+            <div class="agencies-filter-controls">
+              <button id="agencies-export-pdf-button" class="tracking-export-button" type="button" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 14v5h14v-5M8 3h8"/></svg>
+                Exportar página em PDF
+              </button>
+              <div class="agencies-query-controls">
+                <div class="agencies-basis-toggle" role="group" aria-label="Selecionar base de cálculo das agências">
+                  <button class="agencies-basis-button active" type="button" data-agencies-basis="NO_PERIODO" aria-pressed="true">No período</button>
+                  <button class="agencies-basis-button" type="button" data-agencies-basis="ANUAL" aria-pressed="false">Anual</button>
+                </div>
+                <div class="period-filter agencies-period-filter backdrop-blur-sm shadow-md shadow-emerald-950/5 ring-1 ring-white/80" aria-label="Filtro de período das agências">
+                  <label>
+                    <span>DE</span>
+                    <select id="agencies-period-start" aria-label="Período inicial das agências"></select>
+                  </label>
+                  <span class="period-arrow" aria-hidden="true">→</span>
+                  <label>
+                    <span>ATÉ</span>
+                    <select id="agencies-period-end" aria-label="Período final das agências"></select>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div id="agencies-loading" class="tracking-loading">
+            <span class="spinner"></span>
+            <p>Consolidando as agências…</p>
+          </div>
+
+          <div id="agencies-empty" class="tracking-empty" hidden>
+            <span class="empty-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            </span>
+            <h2>Acompanhamento ainda indisponível</h2>
+            <p>Importe e confirme ao menos um arquivo para visualizar as agências.</p>
+            <a class="primary-button inline" href="#importar">Ir para importação</a>
+          </div>
+
+          <div id="agencies-content" hidden>
+            <div class="agencies-heading">
+              <div>
+                <span class="eyebrow">VISÃO CONSOLIDADA</span>
+                <h2 id="agencies-title">Resultado consolidado por PA</h2>
+                <p id="agencies-subtitle">Valores acumulados no período selecionado.</p>
+              </div>
+              <span id="agencies-count" class="distribution-total">—</span>
+            </div>
+            <section class="agencies-executive-summary" aria-label="Resumo executivo das agências">
+              <article>
+                <span>Média de aderência</span>
+                <strong id="agencies-average-rate">—</strong>
+                <small>percentual médio de produtos que atingiram a meta</small>
+              </article>
+              <article class="positive">
+                <span>Maior aderência</span>
+                <strong id="agencies-leading-unit">—</strong>
+                <small id="agencies-leading-rate">—</small>
+              </article>
+              <article class="attention">
+                <span>Maior oportunidade</span>
+                <strong id="agencies-attention-unit">—</strong>
+                <small id="agencies-attention-rate">—</small>
+              </article>
+            </section>
+            <section class="agency-ranking-card" aria-labelledby="agency-ranking-title">
+              <header>
+                <div>
+                  <span>COMPARATIVO CONSOLIDADO</span>
+                  <h2 id="agency-ranking-title">Comparativo por PA</h2>
+                  <p>Ordene o comparativo por agência, metas atingidas ou aderência; os detalhes permanecem em ordem de PA.</p>
+                </div>
+                <span id="agency-ranking-period">—</span>
+              </header>
+              <div class="agency-ranking-scroll">
+                <table class="agency-ranking-table">
+                  <thead>
+                    <tr>
+                      <th aria-sort="none">
+                        <button class="agency-comparison-sort" type="button" data-agency-comparison-sort="name">
+                          AGÊNCIA <span aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th aria-sort="none">
+                        <button class="agency-comparison-sort" type="button" data-agency-comparison-sort="adherent">
+                          METAS ATINGIDAS <span aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th aria-sort="none">
+                        <button class="agency-comparison-sort" type="button" data-agency-comparison-sort="adherence_rate">
+                          ADERÊNCIA <span aria-hidden="true">↕</span>
+                        </button>
+                      </th>
+                      <th><span class="sr-only">Ação</span></th>
+                    </tr>
+                  </thead>
+                  <tbody id="agency-ranking-body"></tbody>
+                </table>
+              </div>
+            </section>
+            <div class="agency-detail-heading">
+              <div>
+                <span>DETALHAMENTO</span>
+                <h2>Produtos por agência</h2>
+                <p>Consulte metas, produção, atingimento e gap de cada unidade.</p>
+              </div>
+            </div>
+            <div id="agencies-card-grid" class="agencies-card-grid"></div>
+          </div>
+        </section>

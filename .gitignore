@@ -1,0 +1,71 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Testes / runtime
+.test_import_*/
+tests/.runtime/
+
+# Node
+node_modules/
+
+# Empacotamento do executável
+build/
+dist/
+*.spec
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+
+# Ferramentas locais
+.agents/
+
+# Configurações e credenciais
+.config
+.env
+.env.*
+!.env.example
+*.local
+logs/
+data/exports/
+
+# Auditorias locais / material privado
+docs/auditoria-visual/
+docs/documento.md
+docs/auditoria-segunda-revisao.md
+
+
+# Referências locais de design
+docs/design-reference/
+
+
+# Bancos, dumps e backups
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*.bak
+
+# Arquivos de dados que não devem ser versionados
+*.parquet
+*.csv
+
+# Temporários
+*.tmp
+*.temp
+~$*
+
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+
+# Cobertura de testes
+.coverage
+htmlcov/
+coverage.xml

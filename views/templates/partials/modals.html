@@ -1,0 +1,77 @@
+    <div id="modal-backdrop" class="modal-backdrop" hidden>
+      <section class="modal ring-1 ring-white/70" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div id="modal-loading" class="modal-loading">
+          <span class="spinner"></span>
+          <h2>Analisando arquivo</h2>
+          <p>Validando estrutura e normalizando os dados…</p>
+        </div>
+
+        <div id="modal-confirmation" hidden>
+          <div class="modal-header">
+            <span class="calendar-illustration">
+              <svg viewBox="0 0 24 24"><path d="M5 5h14v15H5zM8 3v4m8-4v4M5 9h14"/><path class="check" d="m9 14 2 2 4-5"/></svg>
+            </span>
+            <div>
+              <span class="eyebrow">CONFIRMAÇÃO DO PERÍODO</span>
+              <h2 id="modal-title">Importar arquivo de <span id="period-label"></span>?</h2>
+              <p>Confira o período identificado antes de atualizar a base local.</p>
+            </div>
+          </div>
+
+          <div id="existing-period-warning" class="warning-box" hidden>
+            Este período já contém registros no sistema. Ao continuar, os valores armazenados
+            para o período serão atualizados e as alterações serão registradas no log local.
+          </div>
+
+          <div class="analysis-summary">
+            <div><small>LINHAS VÁLIDAS</small><strong id="summary-rows"></strong></div>
+            <div><small>VAZIOS PREENCHIDOS</small><strong id="summary-blanks"></strong></div>
+            <div><small>NÚMEROS CONVERTIDOS</small><strong id="summary-converted"></strong></div>
+          </div>
+
+          <div class="preview-wrap">
+            <div class="preview-title"><strong>Prévia dos dados</strong><span>Primeiras 5 linhas</span></div>
+            <div class="table-scroll">
+              <table>
+                <thead id="preview-head"></thead>
+                <tbody id="preview-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button id="cancel-button" class="ghost-button" type="button">Cancelar</button>
+            <button id="continue-button" class="primary-button inline" type="button">
+              Continuar importação
+              <svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="modal-success" class="modal-success" hidden>
+          <span class="success-icon"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span>
+          <span class="eyebrow">IMPORTAÇÃO CONCLUÍDA</span>
+          <h2 id="success-title">Base atualizada</h2>
+          <p id="success-message"></p>
+          <button id="finish-button" class="primary-button inline" type="button">Concluir</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="wipe-modal-backdrop" class="modal-backdrop" hidden>
+      <section class="modal wipe-modal ring-1 ring-white/70" role="alertdialog" aria-modal="true" aria-labelledby="wipe-modal-title" aria-describedby="wipe-modal-message">
+        <span class="wipe-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5m0 3h.01M12 3 2 20h20z"/></svg>
+        </span>
+        <span class="eyebrow danger-text">EXCLUSÃO DA BASE LOCAL</span>
+        <h2 id="wipe-modal-title">Wipe de registro</h2>
+        <p id="wipe-modal-message">Toda a base armazenada será apagada, deseja confirmar?</p>
+        <div class="wipe-notice">
+          A planilha-modelo e os arquivos da pasta de exportações serão preservados.
+        </div>
+        <div class="modal-actions">
+          <button id="wipe-cancel-button" class="ghost-button" type="button">Cancelar</button>
+          <button id="wipe-confirm-button" class="danger-confirm-button" type="button">Confirmar exclusão</button>
+        </div>
+      </section>
+    </div>

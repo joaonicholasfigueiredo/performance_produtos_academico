@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acompanhamento-produtos"
+version = "0.1.0"
+description = "Aplicação local/web para acompanhamento de produtos"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas==2.3.3",
+    "fastapi==0.136.3",
+    "uvicorn[standard]==0.48.0",
+    "openpyxl==3.1.5",
+    "python-multipart==0.0.32",
+    "jinja2==3.1.6",
+    "psycopg[binary]>=3.2,<4",
+    "reportlab==5.0.1",
+    "pyjwt[crypto]>=2.13,<3",
+    "itsdangerous>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+build = [
+    "PyInstaller==6.22.2",
+]
+
+[project.scripts]
+acompanhamento-produtos = "app.launcher:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["app*", "repo*", "services*", "utils*"]
+
+[tool.setuptools.data-files]
+"views/css" = ["views/css/*"]
+"views/img" = ["views/img/*"]
+"views/src" = ["views/src/*"]
+"views/templates" = ["views/templates/*"]
+"views/templates/partials" = ["views/templates/partials/*"]
+"views/src/modules" = ["views/src/modules/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
