@@ -17,3 +17,13 @@ Probabilidade é qualitativa e contextual; não foi medida em produção. As mit
 | Manutenção das regras | Constantes e pontuação estão distribuídas entre Python e JavaScript | Média | Testes de fluxo e documentação de regras | Casos de aceitação por regra, revisão de negócio e eventual centralização planejada |
 
 Não há backup, restauração, migração ou teste PostgreSQL real automatizado neste repositório. A validação manual local deve ser feita com dados sintéticos e sem executar limpeza de base compartilhada.
+
+## Lacunas de contrato observadas nesta revisão
+
+- JWT: valida claims temporais presentes, mas não exige `exp`; contrato de emissão e validade obrigatória não definido no repositório.
+- Autorização: consulta autenticada não é limitada ao PA do usuário; a política esperada de segregação precisa ser especificada antes de qualquer mudança.
+- Prévias: token não possui vínculo persistido à sessão; as rotas exigem `admin`, mas não verificam propriedade entre administradores.
+- Auditoria: diferenças de reimportação não incluem identidade do operador e não cobrem primeira importação, login ou limpeza.
+- Operação local: controle automático de navegador lê apenas variável do processo; sugestão de endereço de rede do launcher não altera o bind loopback.
+
+A [lista para implementação autônoma](../README.md#o-que-ainda-precisaria-ser-documentado-para-implementação-autônoma) separa comportamento implementado de decisões ainda ausentes. Nenhuma dessas lacunas foi corrigida por alteração funcional nesta atividade.

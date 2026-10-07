@@ -34,6 +34,8 @@ erDiagram
 
 O diagrama representa três tabelas no mesmo schema; **não há chave estrangeira declarada** entre elas. `period` nos logs e o mês dentro dos payloads permitem correlação lógica, mas não impõem integridade referencial.
 
+O desenho omite os pares trimestral, semestral, anual e no período para manter legibilidade; a tabela abaixo e o DDL de `repo/database_core.py` são a referência completa dos campos. Não há tabela de usuários ou sessões: a identidade fica no cookie assinado. Prévia não possui coluna de proprietário e evento de auditoria não possui identificação do operador.
+
 | Tabela | Finalidade e chave | Campos principais | Índices e operações |
 |---|---|---|---|
 | `dados` | Base importada; PK composta `central, coop, pa, id_produto, mes_ano` | `produto`; pares meta/produção `mensal`, `trimestral`, `semestral`, `anual`, `no_periodo`; `registro_id` SHA-256; `arquivo_origem`; `importado_em` | PK e índice por `mes_ano`; leitura analítica, consulta de período e substituição transacional do mês |
