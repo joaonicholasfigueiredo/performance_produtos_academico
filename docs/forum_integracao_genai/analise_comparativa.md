@@ -2,11 +2,11 @@
 
 Esta análise consolida os registros de 23/10/2026 sem reescrever os seis
 documentos originais. A navegação completa, o inventário de alterações
-excluídas e as limitações de publicação estão no [README](README.md).
+excluídas e a situação da publicação estão no [README](README.md).
 
 ## Produtos e evidências disponíveis
 
-| Dimensão | P1 — Zero-shot (A) | P2 — Estados e falhas (B) | P3 — Few-shot (C) |
+| Dimensão | P1 — Zero-shot (A) | P2 — Raciocínio estruturado inspirado em Chain-of-Thought (CoT) (B) | P3 — Few-shot (C) |
 | --- | --- | --- | --- |
 | Orientação do prompt | Instrução contextualizada pelos contratos, sem exemplos adicionais de casos | Operações, dependências, repetições, interrupções, ordem e invariantes | Exemplos ilustrativos de pytest, mocks e comparação numérica |
 | Saída produzida | Oito especificações textuais | Oito especificações textuais | Quatro casos pytest em duas funções parametrizadas |
@@ -16,6 +16,13 @@ excluídas e as limitações de publicação estão no [README](README.md).
 | Aprovados / reprovados | Não se aplica; não houve execução | Não se aplica; não houve execução | 4 / 0 |
 | Tempo de execução | Não medido | Não medido | 2,61 s, na execução original |
 | PostgreSQL | Quatro casos requerem banco descartável para comprovação completa; quatro admitem simulação | Necessidade discriminada por caso; atomicidade e prazo SQL exigem banco real | Persistência simulada; zero tentativas de conexão observadas pelas sentinelas |
+
+O P2 é classificado como **Raciocínio estruturado inspirado em Chain-of-Thought
+(CoT)**: o prompt orientou a IA a mapear operações, dependências, falhas e
+regras de integridade em etapas antes de apresentar os casos de teste.
+Foi solicitado apenas um resumo objetivo desse mapeamento. Essa classificação
+não caracteriza uso de CoT clássico nem solicitação de exposição do raciocínio
+interno da IA; o título original “Estados e falhas” permanece preservado.
 
 Fontes: [resultados P1](resultados_a_zero_shot.md),
 [resultados P2](resultados_b_estados.md) e
@@ -130,6 +137,7 @@ arquivos fora do recorte estão inventariadas no [README](README.md).
 
 Os seis originais e o teste foram mantidos sem alteração. A revisão de
 publicação não encontrou caminhos absolutos pessoais ou dados confidenciais
-nos nove arquivos selecionados. A conexão GitHub disponível não tem permissão
-de push; a publicação remota permanece pendente. Não houve novos testes,
-conexões PostgreSQL ou modificações da aplicação nesta finalização.
+nos nove arquivos selecionados. A documentação acadêmica já está publicada
+na [branch entrega/forum-integracao-genai](https://github.com/joaonicholasfigueiredo/performance_produtos_academico/tree/entrega/forum-integracao-genai/docs/forum_integracao_genai).
+Não houve novos testes, conexões PostgreSQL ou modificações da aplicação
+nesta revisão documental, nem merge ou push automático.

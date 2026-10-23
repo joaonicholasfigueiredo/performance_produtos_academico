@@ -16,8 +16,15 @@ não iniciou a aplicação e não acessou PostgreSQL.
 | Estratégia | Método e foco | Produto registrado | Evidência de execução |
 | --- | --- | --- | --- |
 | P1 — Zero-shot contextualizada (A) | Instruções e contratos reais, sem exemplos fornecidos nesta etapa; amplitude do fluxo e integridade | Oito casos textuais de importação, cancelamento, reimportação, auditoria, valores inválidos e controle de acesso | Nenhum caso implementado ou executado na etapa A |
-| P2 — Estados e falhas (B) | Mapeamento de operações, estados, dependências, efeitos colaterais e invariantes | Oito casos textuais, com ênfase em repetição, expiração de prévias, rollback e consistência temporal | Nenhum caso implementado ou executado na etapa B |
+| P2 — Raciocínio estruturado inspirado em Chain-of-Thought (CoT) (B) | Mapeamento de operações, estados, dependências, efeitos colaterais e invariantes | Oito casos textuais, com ênfase em repetição, expiração de prévias, rollback e consistência temporal | Nenhum caso implementado ou executado na etapa B |
 | P3 — Few-shot (C) | Exemplos de parametrização pytest, ausência de chamadas e comparação numérica; consulta aos contratos | Quatro testes de rejeição e controle de acesso, com persistência simulada | Quatro executados e aprovados; zero reprovados; 2,61 s |
+
+No P2, o prompt orientou a IA a mapear, em etapas, operações, dependências,
+falhas e regras de integridade antes de apresentar os casos de teste.
+A classificação indica essa organização estruturada e a solicitação de um
+resumo objetivo do mapeamento; não caracteriza uso de CoT clássico nem
+solicitação de exposição do raciocínio interno da IA. O experimento original
+mantém o título “Estados e falhas”.
 
 Os quatro testes do P3 implementam um recorte de A-ZS-05 a A-ZS-08 do P1.
 **Não são quatro descobertas inéditas**, nem uma implementação integral de
@@ -101,11 +108,10 @@ A chave JWT no teste é explicitamente sintética e exclusiva de teste;
 e-mails, códigos e planilhas descritos são sintéticos. Não foram incluídos
 arquivos `.env`, planilhas reais, bancos, caches ou arquivos temporários.
 
-O conector GitHub consultado retornou `pull: true` e `push: false` para
-o repositório solicitado. A etapa de publicação remota foi interrompida
-por falta de permissão de escrita nessa conexão. Não se registra esta
-consolidação como publicação concluída. O commit local e os comandos para
-publicação com uma conta autorizada são informados na entrega final.
+A documentação acadêmica já está publicada no GitHub, na
+[branch entrega/forum-integracao-genai](https://github.com/joaonicholasfigueiredo/performance_produtos_academico/tree/entrega/forum-integracao-genai/docs/forum_integracao_genai).
+Esta revisão corrige a classificação metodológica do P2 e o registro da
+publicação, sem merge ou push automático.
 
 ## Inventário das alterações preexistentes
 
