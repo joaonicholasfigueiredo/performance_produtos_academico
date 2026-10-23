@@ -44,7 +44,7 @@ experimental suficiente para atribuir superioridade causal a uma estratégia.
 | Etapa | Prompt, técnica e condições | Saída original |
 | --- | --- | --- |
 | P1 / A | [Experimento A — Zero-shot](experimento_a_zero_shot.md) | [Resultados A — oito casos](resultados_a_zero_shot.md) |
-| P2 / B | [Experimento B — Estados e falhas](experimento_b_estados.md) | [Resultados B — oito casos](resultados_b_estados.md) |
+| P2 / B | [Experimento B — CoT (estados e falhas)](experimento_b_estados.md) | [Resultados B — oito casos](resultados_b_estados.md) |
 | P3 / C | [Experimento C — Few-shot](experimento_c_few_shot.md) | [Resultados C — implementação e execução](resultados_c_few_shot.md) |
 
 - [Análise comparativa e limites das evidências](analise_comparativa.md).
